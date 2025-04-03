@@ -16,8 +16,8 @@ jobs:
       - name: Deploy with FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.2
         with:
-          server: ftp.nicolasarbeletche.com # o el host que te dé Bluehost
+          server: czt.hsk.mybluehost.me # o el host que te dé Bluehost
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: / # o /public_html/nicolasarbeletche.com si es un subdominio
-          local-dir: ./
+          server-dir: ./ # o /public_html/nicolasarbeletche.com si es un subdominio
+          local-dir: /
