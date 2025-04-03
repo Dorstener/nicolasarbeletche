@@ -1,0 +1,23 @@
+name: Deploy to Bluehost
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy with FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.2
+        with:
+          server: ftp.nicolasarbeletche.com # o el host que te dé Bluehost
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: / # o /public_html/nicolasarbeletche.com si es un subdominio
+          local-dir: ./
